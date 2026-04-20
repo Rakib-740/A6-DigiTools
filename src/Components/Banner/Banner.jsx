@@ -6,7 +6,7 @@ import Play1 from '../../assets/Play.png';
 const Banner = () => {
     return (
         <div className='w-3/4 mx-auto'>
-            <div className='flex gap-15 my-15 justify-between'>
+            <div className='flex gap-15 my-15 justify-between flex-col lg:flex-row items-center'>
                 <div className='flex flex-col mt-20'>
                     <div className='bg-[#E1E7FF] btn border-none shadow-none rounded-full w-max mb-4'>
                         <button className='text-transparent bg-clip-text bg-linear-to-tl from-[#4F39F6] to-[#9514FA] flex items-center gap-2'>
