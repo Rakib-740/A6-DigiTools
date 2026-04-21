@@ -3,7 +3,6 @@ import Card from '../Card/Card';
 
 const CardHolder = ({CardPromise}) => {
     const CardData = use(CardPromise);
-    console.log(CardData);
     return (
         <div className='w-3/4 mx-auto'>
             <div>
