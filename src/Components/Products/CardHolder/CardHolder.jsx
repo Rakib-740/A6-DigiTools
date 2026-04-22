@@ -1,11 +1,19 @@
-import React, { use } from 'react';
+
 import Card from '../Card/Card';
 import Cart from '../../Cart/Cart';
+import AllCards from '../AllCards/AllCards';
+import { Suspense } from 'react';
 
-const CardHolder = ({ CardPromise, selected, setSelected, cardIds, setCardIds }) => {
-    const CardData = use(CardPromise);
-    const cart = CardData.filter(cart => cardIds.includes(cart.id));
-    
+const fetchData = async () => {
+    const res = await fetch("/Card.json");
+    return res.json();
+}
+
+const CardHolder = ({ selected, setSelected, cardIds, setCardIds }) => {
+    // const CardData = use(CardPromise);
+    // const cart = CardData.filter(cart => cardIds.includes(cart.id));
+
+    const CardPromise = fetchData();
 
     return (
         <div className='w-3/4 mx-auto min-h-225'>
@@ -23,20 +31,18 @@ const CardHolder = ({ CardPromise, selected, setSelected, cardIds, setCardIds })
             </div>
 
 
-            {
-                selected === "product" ?
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                        {
-                            CardData.map(card => <Card
-                                key={card.id}
-                                card={card}
-                                cardIds={cardIds}
-                                setCardIds={setCardIds}
-                            />)
-                        }
-                    </div>
-                    : <Cart cart={cart} cardIds={cardIds} />
-            }
+            <Suspense fallback={<div className='h-[60vh] flex justify-center items-center'><span className="loading loading-spinner loading-xl flex justify-center items-center"></span></div>}>
+                {
+                    selected === "product" ?
+                        <AllCards
+                            setCardIds={setCardIds}
+                            cardIds={cardIds}
+                            CardPromise={CardPromise}
+                        />
+                        : <Cart CardPromise={CardPromise} cardIds={cardIds} />
+                }
+            </Suspense >
+
             {/* <div className={`${selected === "cart" ? "hidden" : "grid"} grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`}>
                 {
                     CardData.map(card => <Card

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaCartShopping } from 'react-icons/fa6';
 
-const Cart = ({ cardIds, cart }) => {
+const Cart = ({ cardIds,  CardPromise}) => {
+        const CardData = use(CardPromise);
+        const cart = CardData.filter(cart => cardIds.includes(cart.id));
+    
     // const {name, price, icon} = cartProduct;
     const total = cart.reduce((sum, item) => {
         const priceNumber = Number(item.price.replace("$", ""));

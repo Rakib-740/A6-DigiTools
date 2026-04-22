@@ -10,14 +10,11 @@ import PricingHolder from "./Components/Pricing/PricingHolder/PricingHolder";
 import Footer from "./Components/Footer/Footer";
 
 
-const fetchData = async () => {
-  const res = await fetch("/Card.json");
-  return res.json();
-}
+
 
 function App() {
 
-  const CardPromise = fetchData();
+  
   const [selected, setSelected] = useState("product");
   const [cardIds, setCardIds] = useState([]);
   return (
@@ -28,15 +25,14 @@ function App() {
       <main>
         <Banner />
         <Stat />
-        <Suspense fallback={<div className="w-3/4"></div>}>
-          <CardHolder
-            CardPromise={CardPromise}
+        <CardHolder
+            // CardPromise={CardPromise}
             selected={selected}
             setSelected={setSelected}
             cardIds={cardIds}
             setCardIds={setCardIds}
           />
-        </Suspense>
+        
 
         <GetStarted />
 
