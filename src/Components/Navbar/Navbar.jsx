@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({cardIds}) => {
   const [menuState, setMenuState] = useState(false);
 
   const navlist = (
@@ -56,8 +56,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end gap-3 mr-40">
-          <div>
-            <FaShoppingCart />
+          <div className="indicator">
+            <span class="indicator-item badge badge-primary badge-sm text-[#101727] font-bold bg-transparent border-none absolute -right-1">{cardIds}</span>
+            <FaShoppingCart className=""/>
           </div>
           <div className="hidden lg:flex gap-4">
             <button className="border-none shadow-none hover:cursor-pointer">Login</button>

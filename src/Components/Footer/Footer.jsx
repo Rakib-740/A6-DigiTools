@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaInstagramSquare } from 'react-icons/fa';
+import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
     return (
@@ -35,13 +37,17 @@ const Footer = () => {
                         </div>
                         <div>
                             <h1>Social Links</h1>
-                            <div>
-                                <figure>
-                                </figure>
-                                <figure>
-
-                                </figure>
-                                <figure></figure>
+                            <div className='flex gap-4 mt-4'>
+                                <div className='border rounded-full p-2 bg-white'>
+                                    <FaInstagramSquare className='text-black'/>
+                                </div>
+                                <div className='border rounded-full p-2 bg-white'>
+                                    <FaFacebook className='text-black'/>
+                                </div>
+                                <div className='border rounded-full p-2 bg-white'>
+                                    <FaXTwitter className='text-black'/>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -5,8 +5,8 @@ const Card = ({ card, cardIds, setCardIds }) => {
     const isAdded  = cardIds.includes(card.id);
 
     return (
-        <div>
-            <div className="card w-96 min-h-101 h-full bg-base-100 shadow-sm">
+        <div className="flex justify-center">
+            <div className="card w-full min-h-101 h-full bg-base-100 shadow-sm">
                 <div className="card-body space-y-3">
 
                     <span className={

@@ -14,38 +14,38 @@ import Footer from "./Components/Footer/Footer";
 
 function App() {
 
-  
+
   const [selected, setSelected] = useState("product");
   const [cardIds, setCardIds] = useState([]);
   return (
     <>
       <header>
-        <Navbar />
+        <Navbar cardIds={cardIds.length}/>
       </header>
       <main>
         <Banner />
         <Stat />
         <CardHolder
-            // CardPromise={CardPromise}
-            selected={selected}
-            setSelected={setSelected}
-            cardIds={cardIds}
-            setCardIds={setCardIds}
-          />
-        
+          // CardPromise={CardPromise}
+          selected={selected}
+          setSelected={setSelected}
+          cardIds={cardIds}
+          setCardIds={setCardIds}
+        />
+
 
         {
           selected === "product" ?
-          <GetStarted />
-          : ""
+            <GetStarted />
+            : ""
         }
         {
           selected === "product" ?
-          <PricingHolder />
-          : ""
+            <PricingHolder />
+            : ""
         }
 
-        
+
 
         <Footer />
       </main>
