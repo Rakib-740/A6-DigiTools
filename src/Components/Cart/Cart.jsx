@@ -1,10 +1,10 @@
 import React, { use } from 'react';
 import { FaCartShopping } from 'react-icons/fa6';
 
-const Cart = ({ cardIds,  CardPromise}) => {
-        const CardData = use(CardPromise);
-        const cart = CardData.filter(cart => cardIds.includes(cart.id));
-    
+const Cart = ({ cardIds, CardPromise, setCardIds }) => {
+    const CardData = use(CardPromise);
+    const cart = CardData.filter(cart => cardIds.includes(cart.id));
+
     // const {name, price, icon} = cartProduct;
     const total = cart.reduce((sum, item) => {
         const priceNumber = Number(item.price.replace("$", ""));
@@ -36,7 +36,8 @@ const Cart = ({ cardIds,  CardPromise}) => {
                                             <p className="mt-1 text-2xl text-base-content/60">{cartProduct.price}</p>
                                         </div>
                                     </div>
-                                    <button className="btn btn-ghost btn-sm text-pink-500 hover:bg-transparent hover:text-pink-600">
+                                    <button onClick={() => setCardIds(prev => prev.filter(id => id !== cartProduct.id))}
+                                        className="btn btn-ghost btn-sm text-pink-500 hover:bg-transparent hover:text-pink-600">
                                         Remove
                                     </button>
                                 </div>)
@@ -51,7 +52,8 @@ const Cart = ({ cardIds,  CardPromise}) => {
                                 <span className="text-3xl font-bold">${total}</span>
                             </div>
 
-                            <button className="btn w-full rounded-full border-none text-white bg-linear-to-r from-[#4F39F6] to-[#9514FA] p-4">
+                            <button onClick={() => setCardIds([])}
+                                className="btn w-full rounded-full border-none text-white bg-linear-to-r from-[#4F39F6] to-[#9514FA] p-4">
                                 Proceed To Checkout
                             </button>
                         </div>

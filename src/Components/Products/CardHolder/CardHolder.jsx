@@ -9,11 +9,13 @@ const fetchData = async () => {
     return res.json();
 }
 
+const CardPromise = fetchData();
+
 const CardHolder = ({ selected, setSelected, cardIds, setCardIds }) => {
     // const CardData = use(CardPromise);
     // const cart = CardData.filter(cart => cardIds.includes(cart.id));
 
-    const CardPromise = fetchData();
+    
 
     return (
         <div className='w-3/4 mx-auto min-h-225'>
@@ -39,7 +41,7 @@ const CardHolder = ({ selected, setSelected, cardIds, setCardIds }) => {
                             cardIds={cardIds}
                             CardPromise={CardPromise}
                         />
-                        : <Cart CardPromise={CardPromise} cardIds={cardIds} />
+                        : <Cart CardPromise={CardPromise} cardIds={cardIds} setCardIds={setCardIds}/>
                 }
             </Suspense >
 

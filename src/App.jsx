@@ -34,9 +34,18 @@ function App() {
           />
         
 
-        <GetStarted />
+        {
+          selected === "product" ?
+          <GetStarted />
+          : ""
+        }
+        {
+          selected === "product" ?
+          <PricingHolder />
+          : ""
+        }
 
-        <PricingHolder />
+        
 
         <Footer />
       </main>
