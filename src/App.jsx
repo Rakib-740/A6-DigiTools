@@ -8,6 +8,7 @@ import Cart from "./Components/Cart/Cart";
 import GetStarted from "./Components/GetStarted/GetStarted";
 import PricingHolder from "./Components/Pricing/PricingHolder/PricingHolder";
 import Footer from "./Components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <header>
-        <Navbar cardIds={cardIds.length}/>
+        <Navbar cardIds={cardIds.length} />
       </header>
       <main>
         <Banner />
@@ -45,9 +46,10 @@ function App() {
             : ""
         }
 
-
-
         <Footer />
+
+        {/* react toastify */}
+        <ToastContainer />
       </main>
       <footer></footer>
     </>

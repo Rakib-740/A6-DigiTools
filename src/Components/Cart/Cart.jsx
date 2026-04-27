@@ -1,5 +1,7 @@
 import React, { use } from 'react';
+import { FaRegTimesCircle } from 'react-icons/fa';
 import { FaCartShopping } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
 
 const Cart = ({ cardIds, CardPromise, setCardIds }) => {
     const CardData = use(CardPromise);
@@ -10,6 +12,20 @@ const Cart = ({ cardIds, CardPromise, setCardIds }) => {
         const priceNumber = Number(item.price.replace("$", ""));
         return sum + priceNumber;
     }, 0);
+
+    const checkOut = () => {
+        setCardIds([])
+        toast("Purchase successful");
+
+    }
+    const remove = (rID) => {
+        setCardIds(prev => prev.filter(id => id !== rID));
+        toast(<span className='flex justify-center items-center gap-2'>
+            <FaRegTimesCircle className='text-red-700' />
+            <span>Remove from Cart</span>
+        </span>);
+    }
+
     return (
         <div>
             <div className="w-3/4 mx-auto rounded-2xl  p-8 shadow-xl  border  border-base-200">
@@ -36,7 +52,7 @@ const Cart = ({ cardIds, CardPromise, setCardIds }) => {
                                             <p className="mt-1 text-2xl text-base-content/60">{cartProduct.price}</p>
                                         </div>
                                     </div>
-                                    <button onClick={() => setCardIds(prev => prev.filter(id => id !== cartProduct.id))}
+                                    <button onClick={() => remove(cartProduct.id)}
                                         className="btn btn-ghost btn-sm text-pink-500 hover:bg-transparent hover:text-pink-600">
                                         Remove
                                     </button>
@@ -52,7 +68,7 @@ const Cart = ({ cardIds, CardPromise, setCardIds }) => {
                                 <span className="text-3xl font-bold">${total}</span>
                             </div>
 
-                            <button onClick={() => setCardIds([])}
+                            <button onClick={() => checkOut()}
                                 className="btn w-full rounded-full border-none text-white bg-linear-to-r from-[#4F39F6] to-[#9514FA] p-4">
                                 Proceed To Checkout
                             </button>
