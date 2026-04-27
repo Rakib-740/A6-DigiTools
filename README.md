@@ -1,16 +1,33 @@
-# React + Vite
+# 🧰 DigiTools
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based platform where users can explore premium digital tools, add them to a cart, and manage their selections with a smooth and interactive experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ⚙️ Features
 
-## React Compiler
+- 🧩 Explore various premium digital tools
+- 🛒 Add tools to cart
+- ❌ Remove tools from cart
+- 🔢 Real-time cart count in navbar
+- 💰 Dynamic total price calculation
+- 🔄 Toggle between Products & Cart view
+- 💎 Three pricing plans — Starter, Pro, Enterprise
+- ⚡ Toast notifications on add to cart, remove, and checkout using **React Toastify**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React.js** – Frontend library
+- **JavaScript (ES6+)** – Application logic
+- **Tailwind CSS** – Styling
+- **DaisyUI** – UI Components
+- **React Toastify** – Notifications
+- **Vite** – Fast development build tool
+- **Vercel** – Deployment
+
+---
+
+- 🔗 Repository: https://github.com/Rakib-740/A6-DigiTools 
+- 🔗 Live Demo: https://digitools-007-rakib.netlify.app/
